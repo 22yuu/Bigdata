@@ -41,19 +41,19 @@ file.write('지역,현재일기,시정,운량,중하운량,현재기온,이슬�
 for i, tr in enumerate(trs):
     tds = tr.find_all('td')
     #print(f'{i+1}. 지역명 : {tds[0].text}, 온도 : {tds[5].text}')
-    file.write("{},{},{},{},{},{},{},{},{},{},{},{},{}\n".format(tds[0].text,
-                                                                  tds[1].text,
-                                                                  tds[2].text,
-                                                                  tds[3].text,
-                                                                  tds[4].text,
-                                                                  tds[5].text,
-                                                                  tds[6].text,
-                                                                  tds[7].text,
-                                                                  tds[8].text,
-                                                                  tds[9].text,
-                                                                  tds[10].text,
-                                                                  tds[11].text,
-                                                                  tds[12].text))
+    file.write("{},{},{},{},{},{},{},{},{},{},{},{},{}\n".format(tds[0].text if tds[0].text.strip() else 'NA',
+                                                                 tds[1].text if tds[1].text.strip() else 'NA',
+                                                                 tds[2].text if tds[2].text.strip() else 'NA',
+                                                                 tds[3].text if tds[3].text.strip() else 'NA',
+                                                                 tds[4].text if tds[4].text.strip() else 'NA',
+                                                                 tds[5].text if tds[5].text.strip() else 'NA',
+                                                                 tds[6].text if tds[6].text.strip() else 'NA',
+                                                                 tds[7].text if tds[7].text.strip() else 'NA',
+                                                                 tds[8].text if tds[8].text.strip() else 'NA',
+                                                                 tds[9].text if tds[9].text.strip() else 'NA',
+                                                                 tds[10].text if tds[10].text.strip() else 'NA',
+                                                                 tds[11].text if tds[11].text.strip() else 'NA',
+                                                                 tds[12].text if tds[12].text.strip() else 'NA'))
 file.close()
 print('날씨 데이터 수집완료...')
 
